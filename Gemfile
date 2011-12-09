@@ -17,7 +17,7 @@ group :test do
   gem 'webrat'
   #gem 'spork'
   gem 'autotest'
-  gem 'autotest--rails-pure'
+  gem 'autotest-rails-pure'
   #gem 'autotest-growl'
 end
 
