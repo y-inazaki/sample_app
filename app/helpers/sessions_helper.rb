@@ -3,7 +3,8 @@ module SessionsHelper
   def sign_in(user)
     # permanent : expire => 20.years.from_now
     # signed : make cookie secure. all cookie value is encrypted.
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    #cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    session[:remember_token] = [user.id, user.salt]
     self.current_user = user
   end
 
@@ -22,7 +23,8 @@ module SessionsHelper
   end
 
   def remember_token
-    cookies.signed[:remember_token] || [nil, nil]
+    #cookies.signed[:remember_token] || [nil, nil]
+    session[:remember_token] || [nil, nil]
   end
 
   def signed_in?
@@ -30,7 +32,8 @@ module SessionsHelper
   end
 
   def sign_out
-    cookies.delete(:remember_token)
+    #cookies.delete(:remember_token)
+    reset_session
     self.current_user = nil
   end
 end
