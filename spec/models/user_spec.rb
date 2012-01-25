@@ -138,30 +138,30 @@ describe User do
 	matching_user.should == @user
       end
     end
+  end
 
-    describe "admin attribute" do
+  describe "admin attribute" do
 
-      before(:each) do
-        @user = User.create!(@attr)
-      end
-
-      it "should respond to admin" do
-        #respond_to(*names)
-        #actual.respond_to?(name) が成立することを期待します。names には String または Symbol を指定できます。
-        #adminというフィールドが存在することをテストしている?
-        #Userは都度DBにアクセスする?
-        @user.should respond_to(:admin)
-      end
-
-      it "should not be an admin by default" do
-        @user.should_not be_admin
-      end
-
-      it "should be conertible to an admin" do
-        @user.toggle!(:admin)
-        @user.should be_admin
-      end
+    before(:each) do
+      @user = User.create!(@attr)
     end
 
+    it "should respond to admin" do
+      #respond_to(*names)
+      #actual.respond_to?(name) が成立することを期待します。names には String または Symbol を指定できます。
+      #adminというフィールドが存在することをテストしている?
+      #Userは都度DBにアクセスする?
+      @user.should respond_to(:admin)
+    end
+
+    it "should not be an admin by default" do
+      @user.should_not be_admin
+    end
+
+    it "should be conertible to an admin" do
+      @user.toggle!(:admin)
+      @user.should be_admin
+    end
   end
+
 end
