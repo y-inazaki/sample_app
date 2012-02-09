@@ -1,10 +1,16 @@
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :maxlength => 140 %>
   </div>
+  <div class="charsLeftDiv"><span class="charsLeft"></span> chars left.</div>
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
+  <script type="text/javascript">
+    $('textarea#micropost_content').maxlength({
+      'feedback' : '.charsLeft'
+    });
+  </script>
 <% end %>
 

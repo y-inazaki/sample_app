@@ -249,3 +249,16 @@ form.new_micropost textarea {
   margin-bottom: 0;
 }
 
+
+.charsLeft {
+  font-size: 85%;
+  color: #666;
+}
+
+.charsLeftDiv {
+  font-size: 85%;
+  color: #666;
+  text-align: right;
+}
+
+
